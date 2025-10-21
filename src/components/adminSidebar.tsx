@@ -24,7 +24,11 @@ export default function AdminSidebar({
   return (
     <aside className="w-64 bg-[#1f1f1f] text-white min-h-screen flex-shrink-0 border-r border-white/10">
       <div className="py-6 px-5">
-        <a href="/" aria-label="HPZ Home" className="inline-flex items-center gap-3">
+        <a
+          href="/"
+          aria-label="HPZ Home"
+          className="inline-flex items-center gap-3"
+        >
           <Image src={logo} alt="HPZ Logo" className="h-auto w-28" />
         </a>
       </div>
@@ -57,7 +61,12 @@ export default function AdminSidebar({
                   )}
 
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-white/5 group-hover:bg-white/10 transition-colors">
-                    <Image alt={`${label} Icon`} src={icon} width={18} height={18} />
+                    <Image
+                      alt={`${label} Icon`}
+                      src={icon}
+                      width={18}
+                      height={18}
+                    />
                   </span>
 
                   <span className="text-sm font-medium">{label}</span>
@@ -67,6 +76,17 @@ export default function AdminSidebar({
           })}
         </ul>
       </nav>
+      <div className="mt-8 px-5 pb-6">
+        <button
+          type="button"
+          onClick={() => {
+            window.location.href = "/";
+          }}
+          className="cursor-pointer w-full rounded-lg border border-red-500 text-red-500 px-4 py-2.5 font-medium transition-colors hover:bg-red-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500/70"
+        >
+          Logout
+        </button>
+      </div>
     </aside>
   );
 }

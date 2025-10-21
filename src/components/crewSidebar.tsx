@@ -69,6 +69,18 @@ export default function CrewSidebar({
           })}
         </ul>
       </nav>
+
+      <div className="mt-8 px-5 pb-6">
+        <button
+          type="button"
+          onClick={() => {
+            window.location.href = "/";
+          }}
+          className="cursor-pointer w-full rounded-lg border border-red-500 text-red-500 px-4 py-2.5 font-medium transition-colors hover:bg-red-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500/70"
+        >
+          Logout
+        </button>
+      </div>
     </aside>
   );
 }

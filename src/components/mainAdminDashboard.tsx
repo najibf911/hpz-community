@@ -20,7 +20,7 @@ export default function MainAdminDashboard() {
             type="text"
             placeholder="Cari apa saja..."
             aria-label="Pencarian"
-            className="w-full h-10 rounded-xl border border-gray-200 bg-white pl-10 pr-3 text-sm placeholder:text-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            className="w-full h-10 rounded-xl border border-gray-200 bg-white pl-10 pr-3 text-sm placeholder:text-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-black"
           />
           <Image
             alt=""
