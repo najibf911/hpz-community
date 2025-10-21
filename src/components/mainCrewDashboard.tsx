@@ -2,15 +2,19 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import medal from "@/assets/crown.svg";
+import gold from "@/assets/gold.png";
+import silver from "@/assets/silver.png";
+import bronze from "@/assets/bronze.png";
+import instagram from "@/assets/Instagram.png";
+import tiktok from "@/assets/Tik Tok.png";
 
-type Leader = { rank: number; name: string; handle: string; platform: "ig" | "tt" | "tw"; points: string };
+type Leader = { rank: number; name: string; handle: string; platform: "ig" | "tt"; points: string };
 const leaders: Leader[] = [
   { rank: 1, name: "Aditya Pramana", handle: "@adityapramana", platform: "ig", points: "11.002" },
   { rank: 2, name: "Bima Kurniawan", handle: "@bimakrnvwn", platform: "ig", points: "10.231" },
-  { rank: 3, name: "Chandra Saputra", handle: "@chandrasptr", platform: "tw", points: "10.221" },
-  { rank: 4, name: "Dwi Ardiansyah", handle: "@dwiardyn", platform: "tw", points: "9.024" },
-  { rank: 5, name: "Eka Prasetyo", handle: "@ekaprstyo", platform: "tw", points: "8.303" },
+  { rank: 3, name: "Chandra Saputra", handle: "@chandrasptr", platform: "tt", points: "10.221" },
+  { rank: 4, name: "Dwi Ardiansyah", handle: "@dwiardyn", platform: "ig", points: "9.024" },
+  { rank: 5, name: "Eka Prasetyo", handle: "@ekaprstyo", platform: "tt", points: "8.303" },
   { rank: 6, name: "Farhan Rizky", handle: "@farhanrzk", platform: "ig", points: "7.293" },
 ];
 
@@ -143,26 +147,25 @@ export default function MainCrewDashboard() {
                   <th className="py-2 text-right">Point</th>
                 </tr>
               </thead>
-              <tbody>
+                <tbody>
                 {leaders.map((l) => (
                   <tr key={l.rank} className="border-t border-gray-100">
-                    <td className="py-2">{l.rank}</td>
-                    <td className="py-2">{l.name}</td>
-                    <td className="py-2">
-                      <span className="inline-flex items-center gap-2 text-gray-700">
-                        <span
-                          className={[
-                            "inline-block h-3 w-3 rounded-full",
-                            l.platform === "ig" ? "bg-pink-500" : l.platform === "tt" ? "bg-black" : "bg-black",
-                          ].join(" ")}
-                        />
-                        {l.handle}
-                      </span>
-                    </td>
-                    <td className="py-2 text-right">{l.points}</td>
+                  <td className="py-2">{l.rank}</td>
+                  <td className="py-2">{l.name}</td>
+                  <td className="py-2">
+                    <span className="inline-flex items-center gap-2 text-gray-700">
+                    {l.platform === "ig" ? (
+                      <Image src={instagram} alt="Instagram" width={12} height={12} />
+                    ) : l.platform === "tt" ? (
+                      <Image src={tiktok} alt="TikTok" width={12} height={12} />
+                    ) : null}
+                    {l.handle}
+                    </span>
+                  </td>
+                  <td className="py-2 text-right">{l.points}</td>
                   </tr>
                 ))}
-              </tbody>
+                </tbody>
             </table>
           </div>
 
@@ -241,11 +244,28 @@ export default function MainCrewDashboard() {
           </div>
 
           <div className="mt-4 grid grid-cols-3 gap-4">
-            <div className="col-span-1 flex flex-col items-center gap-2 rounded-md border border-gray-200 p-3">
-              <Image src={medal} alt="Medal" width={56} height={56} />
-              <div className="text-xs text-gray-500">HPZ Legend</div>
-              <div className="text-xs text-gray-500">7590 Poin</div>
-            </div>
+            {(() => {
+              const status = "HPZ Legend"; // or "Pro Racer" | "Rookie Rider" | "HPZ Crew"
+              const points = 7590;
+
+              const medalSrc =
+                status === "HPZ Legend" ? gold :
+                status === "Pro Racer" ? silver :
+                bronze;
+
+              const medalAlt =
+                status === "HPZ Legend" ? "Gold badge" :
+                status === "Pro Racer" ? "Silver badge" :
+                "Bronze badge";
+
+              return (
+                <div className="col-span-1 flex flex-col items-center gap-2 rounded-md border border-gray-200 p-3">
+                  <Image src={medalSrc} alt={medalAlt} width={56} height={56} />
+                  <div className="text-xs text-gray-500">{status}</div>
+                  <div className="text-xs text-gray-500">{points} Poin</div>
+                </div>
+              );
+            })()}
 
             <div className="col-span-2 grid grid-cols-2 gap-3 text-center">
               <div className="rounded-md border border-gray-200 p-3">

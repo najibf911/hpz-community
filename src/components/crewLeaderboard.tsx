@@ -1,3 +1,8 @@
+
+import instagram from "@/assets/Instagram.png";
+import tiktok from "@/assets/Tik Tok.png";
+import Image from "next/image";
+
 type Row = { rank: number; name: string; handle: string; platform: "ig" | "tt"; points: string };
 const rows: Row[] = [
   { rank: 1, name: "Aditya Pramana", handle: "adityapramana", platform: "ig", points: "11.002" },
@@ -77,7 +82,7 @@ export default function CrewLeaderboard() {
                     <td className="py-2">{r.name}</td>
                     <td className="py-2">
                       <span className="inline-flex items-center gap-2 text-gray-700">
-                        <span className={["inline-block h-3 w-3 rounded-full", r.platform === "ig" ? "bg-pink-500" : "bg-black"].join(" ")} />
+                        <Image src={r.platform === "ig" ? instagram : tiktok} alt={r.platform === "ig" ? "Instagram" : "TikTok"} width={12} height={12} />
                         @{r.handle}
                       </span>
                     </td>

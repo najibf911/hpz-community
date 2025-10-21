@@ -1,11 +1,14 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import instagram from "@/assets/Instagram.png";
+import tiktok from "@/assets/Tik Tok.png";
 
-type InsightRow = { rank: number; username: string; engagement: string; score: number };
+type InsightRow = { rank: number; username: string; platform: "ig" | "tt"; engagement: string; score: number };
 const insights: InsightRow[] = [
-	{ rank: 1, username: "@adityapramana", engagement: "9.7%", score: 50 },
-	{ rank: 2, username: "@adityaprama", engagement: "8.4%", score: 50 },
-	{ rank: 3, username: "@adityaprama", engagement: "8.9%", score: 49 },
+	{ rank: 1, username: "@adityapramana", platform: "ig", engagement: "9.7%", score: 50 },
+	{ rank: 2, username: "@adityaprama", platform: "ig", engagement: "8.4%", score: 50 },
+	{ rank: 3, username: "@adityaprama", platform: "tt", engagement: "8.9%", score: 49 },
 ];
 
 type PastRow = { name: string; period: string; participants: number; contents: number; status: "Completed" | "Canceled" };
@@ -213,7 +216,7 @@ export default function AdminEvent() {
 											<td className="py-2 pl-3">{r.rank}</td>
 											<td className="py-2">
 												<span className="inline-flex items-center gap-2 text-gray-700">
-													<span className="inline-block h-3 w-3 rounded-full bg-pink-500" />
+													<Image src={r.platform === "ig" ? instagram : tiktok} alt={r.platform === "ig" ? "Instagram" : "TikTok"} width={12} height={12} />
 													{r.username}
 												</span>
 											</td>

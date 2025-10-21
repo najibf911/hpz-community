@@ -1,4 +1,7 @@
 "use client";
+import Image from "next/image";
+import instagram from "@/assets/Instagram.png";
+import tiktok from "@/assets/Tik Tok.png";
 
 export default function AdminAnalytic() {
 	return (
@@ -61,7 +64,7 @@ export default function AdminAnalytic() {
 						{/* KPIs */}
 						<div className="mt-4 grid grid-cols-2 gap-4 text-black">
 							<div className="rounded-xl border border-gray-200 p-4 flex items-center gap-3">
-								<div className="h-10 w-10 rounded-lg bg-gradient-to-br from-yellow-300 via-pink-400 to-purple-600" />
+								<Image className="h-10 w-10 rounded-lg" src={instagram} alt="Instagram" width={40} height={40} />
 								<div>
 									<div className="text-2xl font-bold">9.7%</div>
 									<div className="text-xs text-gray-500">1027 interaksi</div>
@@ -72,7 +75,7 @@ export default function AdminAnalytic() {
 								</div>
 							</div>
 							<div className="rounded-xl border border-gray-200 p-4 flex items-center gap-3">
-								<div className="h-10 w-10 rounded-lg bg-black" />
+								<Image className="h-10 w-10 rounded-lg" src={tiktok} alt="TikTok" width={40} height={40} />
 								<div>
 									<div className="text-2xl font-bold">9.7%</div>
 									<div className="text-xs text-gray-500">1027 interaksi</div>
