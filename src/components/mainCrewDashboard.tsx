@@ -236,17 +236,17 @@ export default function MainCrewDashboard() {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="grid h-12 w-12 place-items-center rounded-full bg-yellow-200 text-yellow-800 font-bold">@</div>
+            <Image src={tiktok} alt="@ekaprstyo" width={40} height={40} />
             <div className="text-sm">
-              <div className="font-semibold">@pohoNKertas</div>
-              <div className="text-gray-600">Kode Referal : <span className="font-mono">N2nJImf9Ne</span></div>
+              <div className="font-semibold">@ekaprstyo</div>
+              <div className="text-gray-600">Kode Referal : <span className="font-mono">HPZ-P04C6Z</span></div>
             </div>
           </div>
 
           <div className="mt-4 grid grid-cols-3 gap-4">
             {(() => {
               const status = "HPZ Legend"; // or "Pro Racer" | "Rookie Rider" | "HPZ Crew"
-              const points = 7590;
+              const points = 8303;
 
               const medalSrc =
                 status === "HPZ Legend" ? gold :
@@ -269,11 +269,11 @@ export default function MainCrewDashboard() {
 
             <div className="col-span-2 grid grid-cols-2 gap-3 text-center">
               <div className="rounded-md border border-gray-200 p-3">
-                <div className="text-2xl font-bold">5</div>
+                <div className="text-2xl font-bold">15</div>
                 <div className="text-xs text-gray-500">Challenge diikuti</div>
               </div>
               <div className="rounded-md border border-gray-200 p-3">
-                <div className="text-2xl font-bold">#11</div>
+                <div className="text-2xl font-bold">#5</div>
                 <div className="text-xs text-gray-500">di Leaderboard</div>
               </div>
               <div className="col-span-2 rounded-md border border-gray-200 p-3">

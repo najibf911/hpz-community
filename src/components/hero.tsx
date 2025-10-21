@@ -86,7 +86,7 @@ export default function Hero() {
           akses ke produk premium.
         </p>
         <a
-          href="#"
+          href="#joinUs"
           className="lg:mt-10 inline-block text-center w-50 mx-auto lg:mx-0 hover:bg-red-900 transition duration-200 ease-in-out text-white bg-[#EC1617] rounded-2xl p-2.5 shadow-md"
         >
           Gabung HPZ Crew
@@ -127,7 +127,7 @@ export default function Hero() {
                 key={i}
                 src={src}
                 alt={`hero ${i + 1}`}
-                className={`h-full w-full rounded-2xl object-cover ${
+                className={`h-full w-full rounded-2xl object-cover hover:scale-110 transition-transform duration-300 ease-in-out ${
                   i >= 2 ? "hidden lg:block" : ""
                 }`}
               />
@@ -142,7 +142,7 @@ export default function Hero() {
                 <Image
                   src={src}
                   alt={`hero ${i + 1}`}
-                  className="w-full h-full rounded-2xl object-cover"
+                  className="w-full h-full rounded-2xl object-cover hover:scale-110 transition-transform duration-300 ease-in-out"
                 />
               </div>
             ))}
