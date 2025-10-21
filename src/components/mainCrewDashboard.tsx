@@ -85,9 +85,7 @@ export default function MainCrewDashboard() {
                 <h3 className="font-semibold">Motor Pride of the Week</h3>
                 <p className="text-xs text-gray-500">3 - 10 Oktober 2025</p>
               </div>
-              <button type="button" className="cursor-pointer rounded-md p-1 text-gray-500 hover:bg-gray-100" aria-label="More">
-                <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5"><path fill="currentColor" d="M6 12a2 2 0 1 1-4.001-.001A2 2 0 0 1 6 12Zm8 0a2 2 0 1 1-4.001-.001A2 2 0 0 1 14 12Zm8 0a2 2 0 1 1-4.001-.001A2 2 0 0 1 22 12Z"/></svg>
-              </button>
+              
             </div>
             <p className="mt-2 text-sm text-gray-700">
               Buat konten modifikasi motor paling kreatif. Konten terbaik akan tampil di Weekly Best Content dan dapat hadiah eksklusif HPZ
@@ -193,9 +191,7 @@ export default function MainCrewDashboard() {
                     <h3 className="font-semibold">{it.title}</h3>
                     <p className="text-xs text-gray-500">{it.dateRange}</p>
                   </div>
-                  <button type="button" aria-label="More" className="cursor-pointer rounded-md p-1 text-gray-500 hover:bg-gray-100">
-                    <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5"><path fill="currentColor" d="M6 12a2 2 0 1 1-4.001-.001A2 2 0 0 1 6 12Zm8 0a2 2 0 1 1-4.001-.001A2 2 0 0 1 14 12Zm8 0a2 2 0 1 1-4.001-.001A2 2 0 0 1 22 12Z"/></svg>
-                  </button>
+                  
                 </div>
                 <p className="mt-2 text-sm text-gray-700">{it.description}</p>
                 <div className="mt-3 flex items-center justify-between">
