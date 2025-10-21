@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import heroWatermark from "@/assets/heroFull.png";
@@ -10,6 +10,7 @@ export default function WelcomePage() {
   const params = useSearchParams();
   const returnTo = params.get("return") || "/crew/dashboard";
   const demo = params.get("demo");
+  const [sent, setSent] = useState(false);
 
   // If welcome already completed, skip this page
   useEffect(() => {
@@ -101,6 +102,24 @@ export default function WelcomePage() {
 
         {/* instruction card */}
         <div className="rounded-xl bg-white/90 backdrop-blur shadow-md border border-gray-200 overflow-hidden">
+          {sent && (
+            <div className="flex items-center justify-between gap-4 border-b border-gray-200 bg-green-50 px-6 py-4" role="status" aria-live="polite">
+              <div className="flex items-start gap-3">
+                <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-green-600 text-white">🚀</span>
+                <div>
+                  <p className="font-semibold text-green-700">Invite Link Discord Terkirim via Email !</p>
+                  <p className="text-sm text-gray-700">Cek email kamu sekarang — tautan untuk bergabung ke server Discord HPZ sudah dikirim. Jangan lupa lihat folder spam kalau belum muncul ya!</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => router.replace(returnTo)}
+                className="hidden md:inline-flex items-center rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
+              >
+                Masuk ke Dashboard
+              </button>
+            </div>
+          )}
           <form
             className="p-6 md:p-8"
             onSubmit={(e) => {
@@ -112,7 +131,7 @@ export default function WelcomePage() {
               try {
                 localStorage.setItem("hpz_crew_welcome_done", "1");
               } catch {}
-              router.replace(returnTo);
+              setSent(true);
             }}
           >
             <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">
@@ -143,9 +162,7 @@ export default function WelcomePage() {
 
             <h4 className="font-semibold text-gray-900 mb-2">Contoh :</h4>
             <blockquote className="italic text-gray-700 bg-gray-50 border border-gray-200 rounded-md p-3 mb-4">
-              “Halo, saya Dimas dari Surabaya. Ini motor saya, dan saya gabung
-              HPZ Crew karena pengen sharing dan belajar bareng soal performa
-              motor. Ride with Pride bersama HPZ Crew!”
+              “Halo, saya Dimas dari Surabaya. Ini motor saya, dan saya gabung HPZ Crew karena pengen sharing dan belajar bareng soal performa motor. Ride with Pride bersama HPZ Crew!”
             </blockquote>
             <p className="text-gray-700 mb-6">
               Setelah video selesai, unggah ke platform mana pun (Instagram,
@@ -168,12 +185,23 @@ export default function WelcomePage() {
               required
             />
 
-            <button
-              type="submit"
-              className="mt-4 w-full rounded-md bg-[#EC1617] py-2.5 text-white font-medium hover:bg-red-700 transition-colors"
-            >
-              Kirim Link
-            </button>
+            <div className="flex items-center justify-between gap-3 mt-4">
+              <button
+                type="submit"
+                className="w-full md:w-auto rounded-md bg-[#EC1617] px-5 py-2.5 text-white font-medium hover:bg-red-700 transition-colors"
+              >
+                Kirim Link
+              </button>
+              {sent && (
+                <button
+                  type="button"
+                  onClick={() => router.replace(returnTo)}
+                  className="md:hidden w-full rounded-md border border-gray-300 px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >
+                  Masuk ke Dashboard
+                </button>
+              )}
+            </div>
           </form>
         </div>
       </div>
