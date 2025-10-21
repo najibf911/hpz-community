@@ -1,9 +1,20 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import heroWatermark from "@/assets/heroFull.png";
 
 export default function WelcomePage() {
+  const router = useRouter();
+  const params = useSearchParams();
+  const returnTo = params.get("return") || "/crew/dashboard";
+
+  // If welcome already completed, skip this page
+  useEffect(() => {
+    const done = typeof window !== "undefined" && localStorage.getItem("hpz_crew_welcome_done");
+    if (done) router.replace(returnTo);
+  }, [router, returnTo]);
   return (
     <section className="relative overflow-hidden py-12 lg:py-20">
       {/* background base */}
@@ -96,8 +107,11 @@ export default function WelcomePage() {
               const data = new FormData(e.currentTarget);
               const link = String(data.get("videoLink") || "").trim();
               if (!link) return;
-              // Placeholder submit behavior
-              alert("Link terkirim: " + link);
+              // Mark welcome as done and redirect to dashboard
+              try {
+                localStorage.setItem("hpz_crew_welcome_done", "1");
+              } catch {}
+              router.replace(returnTo);
             }}
           >
             <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">
