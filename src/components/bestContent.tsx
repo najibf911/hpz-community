@@ -25,7 +25,7 @@ export default function BestContent() {
         <div className="rounded-lg flex items-center lg:order-2 flex-col">
           {/* <!-- number --> */}
           <div className="mx-auto mb-4">
-            <img src={crown.src} alt="Ranking 1" />
+            <Image src={crown} alt="Ranking 1" />
           </div>
 
           {/* <!-- content --> */}
