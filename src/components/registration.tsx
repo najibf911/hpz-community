@@ -11,9 +11,6 @@ export default function Registration() {
     e.preventDefault();
     const form = e.currentTarget as HTMLFormElement & {
       fullName: HTMLInputElement;
-      birthPlace: HTMLInputElement;
-      birthDate: HTMLInputElement;
-      domisili: HTMLInputElement;
       phoneNumber: HTMLInputElement;
       email: HTMLInputElement;
       password: HTMLInputElement;
@@ -21,7 +18,6 @@ export default function Registration() {
     try {
       addCrewUser({
         fullName: form.fullName.value,
-        domisili: form.domisili.value,
         phoneNumber: form.phoneNumber.value,
         email: form.email.value,
         password: form.password.value,
@@ -59,6 +55,7 @@ export default function Registration() {
                 id="fullName"
                 name="fullName"
                 placeholder="Nama Lengkap"
+                required
                 className="w-full p-3 mb-3 border bg-white  rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
               />
 
@@ -68,6 +65,7 @@ export default function Registration() {
                 id="email"
                 name="email"
                 placeholder="example@gmail.com"
+                required
                 className="w-full p-3 mb-3 border bg-white rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
               />
 
@@ -77,8 +75,19 @@ export default function Registration() {
                 id="password"
                 name="password"
                 placeholder="Password"
-                className="w-full p-3 mb-8 border bg-white rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
+                required
+                className="w-full p-3 mb-3 border bg-white rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
               />
+
+              {/* <label className="text-white text-lg">Domisili</label>
+              <input
+                type="text"
+                id="domisili"
+                name="domisili"
+                placeholder="Kota Domisili"
+                required
+                className="w-full p-3 mb-8 border bg-white rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
+              /> */}
 
               <label className="text-white text-lg">No. Telepon</label>
               <input
@@ -86,6 +95,7 @@ export default function Registration() {
                 id="phoneNumber"
                 name="phoneNumber"
                 placeholder="No. Telepon"
+                required
                 className="w-full p-3 mb-3 border bg-white rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
               />
 

@@ -41,7 +41,7 @@ export default function Hero() {
               width="1000"
               height="538.4"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
               <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
