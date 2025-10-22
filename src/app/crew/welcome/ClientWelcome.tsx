@@ -1,0 +1,212 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+
+export default function ClientWelcome({
+  returnTo,
+  demo,
+}: {
+  returnTo: string;
+  demo?: string;
+}) {
+  const router = useRouter();
+  const [sent, setSent] = useState(false);
+
+  // If welcome already completed, skip this page (unless demo mode)
+  useEffect(() => {
+    const done = typeof window !== "undefined" && localStorage.getItem("hpz_crew_welcome_done");
+    if (done && !demo) router.replace(returnTo);
+  }, [router, returnTo, demo]);
+
+  return (
+    <section className="relative overflow-hidden py-12 lg:py-20">
+      {/* background base */}
+      <div className="absolute inset-0 -z-20 bg-white" />
+
+      {/* decorative corner stripes */}
+      <div className="pointer-events-none absolute -top-170 -left-100 -z-10 -rotate-45 w-[140vw]">
+        <div className=" h-10 bg-[#EC1617]" />
+        <div className="h-40 bg-black/90" />
+      </div>
+
+      {/* faint motorcycle watermark */}
+      <div className="absolute inset-0 -z-20 top-50 opacity-50">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="930"
+          height="537"
+          viewBox="0 0 930 537"
+          fill="black"
+        >
+          <g filter="url(#filter0_i_706_5908)">
+            <path
+              d="M330.604 2.97662C331.476 6.46777 327.985 8.64966 322.312 8.64966C306.602 8.64966 295.256 19.5594 273.873 53.5976C255.109 83.7083 252.927 85.4539 240.708 83.7083C230.671 82.3991 227.616 83.7083 227.616 88.9449C227.616 98.1091 225.434 97.6727 213.215 85.4539C203.615 75.8533 164.776 65.8164 159.103 71.4894C153.43 77.1625 145.139 134.766 148.63 146.548C151.248 156.585 155.176 159.64 169.14 163.131C178.304 165.313 187.032 167.495 187.905 168.367C188.778 169.24 180.05 185.823 168.267 205.024C150.376 234.262 145.575 239.935 138.157 237.753C64.4073 216.37 -6.72385 233.826 -52.9809 284.446L-70 302.775L-56.9084 308.884L-43.8168 315.43L-53.4173 335.504C-60.3995 351.214 -62.5814 363.869 -62.5814 394.852C-62.5814 428.891 -60.8359 437.182 -50.799 455.947C-15.0152 523.587 63.0981 551.079 129.865 519.659C162.594 504.386 182.668 483.875 198.815 450.274L211.47 424.09L231.107 436.746C242.017 443.728 256.418 449.401 262.964 449.401H275.182L264.709 430.636C259.472 420.599 251.617 397.907 247.69 380.015C238.089 336.813 217.579 296.229 194.014 274.41L174.377 256.518L199.251 215.497C213.215 192.805 225.434 173.604 227.18 172.731C228.925 171.422 247.254 207.642 268.637 252.154C289.583 297.102 316.639 349.905 328.422 369.542C340.204 388.743 351.55 413.181 353.732 423.654C358.532 444.164 370.315 455.947 390.389 459.874C397.371 461.183 437.955 462.492 480.284 462.492C563.198 462.056 578.471 459.438 605.527 438.491C626.474 422.345 631.274 408.817 624.729 383.07C618.619 357.76 624.292 335.504 640.002 325.467C646.112 321.539 653.53 311.939 657.021 303.647C664.44 285.319 679.277 274.846 697.169 274.846C717.679 274.846 718.115 279.21 698.914 295.793C678.841 312.375 663.567 340.304 655.276 373.906C650.475 392.234 650.475 400.962 654.839 421.908C670.549 492.167 717.243 532.751 786.628 535.806C815.866 537.551 823.721 535.806 846.413 525.769C940.237 483.875 959.001 364.305 882.633 295.793C851.65 267.864 826.339 260.009 777.028 262.627C755.645 263.936 738.189 263.936 738.189 262.191C738.189 260.882 746.044 252.154 755.645 242.99C785.755 214.624 775.282 196.733 733.389 205.46C720.297 208.079 691.059 209.388 666.622 208.515C622.11 206.333 596.8 198.478 574.98 179.277C567.562 172.731 566.253 173.168 555.343 185.387L543.997 198.915L530.905 186.696C506.468 163.567 453.665 133.893 413.517 121.238C362.023 104.655 305.729 100.291 284.783 110.764C274.746 116.001 271.255 116.874 273.873 112.51C305.729 61.4525 329.294 30.4691 336.713 30.4691C342.386 30.4691 345.441 33.5237 345.441 39.1968C345.441 48.3609 360.278 56.6523 376.861 56.6523C382.097 56.6523 389.516 59.707 393.88 63.6345C398.244 67.562 402.607 68.4348 403.917 66.2528C408.28 59.2706 395.189 51.852 373.369 48.7973C360.714 47.0518 351.986 43.1243 350.677 39.1968C348.495 33.5237 349.368 33.5237 355.914 38.7604C361.151 43.1243 364.642 43.5607 368.133 40.0696C371.188 37.0149 377.733 37.4512 389.952 41.8151C409.59 48.3609 415.263 47.0518 415.263 34.8329C415.263 28.7235 410.899 25.6688 399.553 23.4869C386.897 21.3049 385.152 19.5594 390.825 16.5046C394.752 14.3227 397.807 9.52246 397.807 5.59497C397.807 -0.078064 393.007 -0.950867 365.514 1.23108C347.623 2.54028 331.913 2.10388 331.04 0.794678C330.167 -0.950867 330.167 0.358337 330.604 2.97662ZM320.13 236.88C319.257 242.117 315.766 249.535 312.712 253.027C305.293 262.191 326.24 312.812 347.186 335.94C355.914 345.541 362.896 353.832 362.896 354.705C362.896 355.141 358.969 359.069 354.168 363.433C345.441 370.851 345.004 370.415 328.422 335.067C319.257 314.994 304.42 283.574 295.693 264.809C286.528 246.044 279.983 229.898 280.855 229.462C290.02 221.607 300.493 219.861 310.966 223.352C320.13 226.407 322.312 229.462 320.13 236.88ZM362.896 233.389C362.896 236.444 327.549 245.172 324.93 242.553C319.257 237.317 330.167 231.207 345.877 231.207C355.041 231.207 362.896 232.08 362.896 233.389ZM435.773 245.608C434.9 248.663 431.845 250.845 429.227 250.408C426.172 249.972 418.317 249.535 411.335 249.099C404.353 249.099 397.807 246.044 396.498 242.99C395.189 239.062 399.989 238.189 416.135 239.062C429.663 240.371 437.082 242.553 435.773 245.608ZM506.031 251.281C506.904 251.717 506.904 255.208 506.031 259.136C504.722 264.809 501.667 264.373 482.903 255.645L461.083 245.608L482.903 247.79C495.122 248.663 505.595 250.408 506.031 251.281ZM528.723 266.555C533.087 281.392 532.651 288.374 526.541 303.211C522.614 313.684 520.868 326.776 522.178 332.449C526.105 347.723 513.013 361.251 490.758 364.742C480.284 366.487 471.993 366.051 471.993 363.869C471.993 361.687 479.412 350.777 488.576 339.868C511.704 311.502 523.05 285.319 516.505 274.41C509.086 263.063 509.959 248.663 517.814 248.663C521.305 248.663 526.105 256.081 528.723 266.555ZM66.1528 335.504C66.1528 350.341 64.8437 352.959 54.3704 355.578C45.2062 357.76 40.8424 356.014 34.7329 348.159C24.2597 334.195 24.696 332.013 41.2788 325.03C63.0981 315.43 66.1528 316.739 66.1528 335.504ZM94.9544 321.976C98.4455 324.158 96.6999 329.831 89.7177 340.304L79.2444 355.141V336.813C79.2444 318.921 83.6083 314.557 94.9544 321.976ZM785.319 342.922C787.065 362.996 780.082 358.632 775.282 336.377C772.664 325.03 773.537 322.412 777.9 323.721C781.392 325.03 784.446 333.322 785.319 342.922ZM823.285 328.958C831.576 332.449 838.558 336.813 838.558 338.558C838.558 339.868 834.194 346.413 828.958 352.959C820.666 362.56 817.175 363.433 809.32 359.941C801.465 356.45 799.283 352.086 799.283 339.431C799.283 321.103 801.465 320.23 823.285 328.958ZM28.6235 357.323C39.0968 368.669 33.8602 388.307 20.3322 388.307C5.495 388.307 -3.23275 383.943 -1.4872 378.27C9.85887 345.541 15.0955 342.05 28.6235 357.323ZM754.772 369.106C755.645 369.542 754.772 374.779 753.026 381.324C750.844 390.925 748.226 392.67 733.389 392.67C714.188 392.67 713.752 390.925 723.352 366.487L730.771 348.595L742.117 358.632C748.226 364.305 753.899 369.106 754.772 369.106ZM859.505 364.305C869.105 384.816 866.487 392.67 850.341 392.67C838.995 392.67 834.631 390.052 830.703 382.197C827.212 373.906 827.649 370.415 835.504 362.56C847.722 350.341 853.395 350.777 859.505 364.305ZM34.2966 409.69C38.6604 421.036 37.7877 423.218 26.4416 431.509C19.8958 436.746 13.35 440.673 12.0408 440.673C10.2953 440.673 -3.66914 407.944 -3.66914 403.58C-3.66914 402.707 2.87667 400.962 10.7316 400.089C18.1502 399.216 25.5688 397.907 26.878 397.907C28.1871 397.471 31.6782 402.707 34.2966 409.69ZM148.194 403.58C149.939 404.889 135.538 440.673 133.356 440.673C132.047 440.673 125.501 436.746 118.956 431.509C107.61 423.218 107.173 421.036 111.101 410.126C115.465 399.216 117.21 397.907 131.175 400.089C139.902 401.398 147.321 403.144 148.194 403.58ZM751.717 413.181C755.208 422.781 754.336 426.272 746.481 435C733.389 448.528 730.334 447.655 722.479 429.763C713.752 408.817 714.624 406.635 730.771 404.453C738.189 403.58 745.171 402.271 746.044 402.271C746.481 401.835 749.099 406.635 751.717 413.181ZM864.742 416.672C864.742 422.345 861.25 431.073 856.887 436.309L849.468 445.473L837.686 436.746C827.649 428.454 826.776 426.272 830.703 415.363C834.631 404.889 837.249 403.58 849.904 404.889C862.123 406.199 864.742 408.817 864.742 416.672ZM66.1528 454.637C66.1528 463.802 63.9709 471.22 61.789 471.22C57.4251 471.22 31.6782 459.438 27.3144 455.51C26.4416 455.074 29.9327 448.528 35.1693 441.109C43.4607 429.327 45.6426 428.454 55.2431 432.818C63.9709 436.746 66.1528 441.109 66.1528 454.637ZM118.519 451.583C118.519 456.383 91.8997 471.22 83.6083 471.22C80.99 471.22 79.2444 463.802 79.2444 454.637C79.2444 441.109 81.4264 436.746 89.2814 433.255C97.1363 429.327 100.627 430.2 108.919 437.618C114.155 442.419 118.519 448.964 118.519 451.583ZM775.282 437.182C782.701 440.673 786.192 445.473 786.192 453.328C786.192 473.839 780.519 477.33 762.627 469.038C753.899 464.674 746.917 460.747 746.917 459.438C746.917 456.819 761.318 431.945 763.063 431.945C763.5 431.945 769.173 434.127 775.282 437.182ZM828.958 445.037L838.558 457.692L828.958 464.238C823.285 467.729 814.557 471.657 809.32 472.966C801.029 475.584 799.72 474.275 798.411 459.438C797.102 445.473 798.847 441.982 808.011 437.618C814.121 435 818.921 432.382 819.357 432.382C819.357 431.945 823.721 437.618 828.958 445.037Z"
+              fill="#F6F6F6"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_i_706_5908"
+              x="-70"
+              y="0"
+              width="1000"
+              height="538.4"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha"
+              />
+              <feOffset dy="2" />
+              <feGaussianBlur stdDeviation="6" />
+              <feComposite
+                in2="hardAlpha"
+                operator="arithmetic"
+                k2="-1"
+                k3="1"
+              />
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0.990385 0 0 0 0 0.116656 0 0 0 0 0.116656 0 0 0 0.08 0"
+              />
+              <feBlend
+                mode="normal"
+                in2="shape"
+                result="effect1_innerShadow_706_5908"
+              />
+            </filter>
+          </defs>
+        </svg>
+      </div>
+
+      <div className="mx-auto max-w-4xl px-4">
+        {/* page heading */}
+        <div className="text-center mb-8 md:mb-10">
+          <h1 className="text-2xl md:text-4xl font-extrabold text-gray-900">
+            Selamat Datang, HPZ Crew !
+          </h1>
+          <p className="mt-2 text-gray-600">
+            Submit misi Verifikasi untuk mendapatkan invite link server Discord
+            HPZ TV
+          </p>
+        </div>
+
+        {/* instruction card */}
+        <div className="rounded-xl bg-white/90 backdrop-blur shadow-md border border-gray-200 overflow-hidden">
+          {sent && (
+            <div className="flex items-center justify-between gap-4 border-b border-gray-200 bg-green-50 px-6 py-4" role="status" aria-live="polite">
+              <div className="flex items-start gap-3">
+                <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-green-600 text-white">🚀</span>
+                <div>
+                  <p className="font-semibold text-green-700">Invite Link Discord Terkirim via Email !</p>
+                  <p className="text-sm text-gray-700">Cek email kamu sekarang — tautan untuk bergabung ke server Discord HPZ sudah dikirim. Jangan lupa lihat folder spam kalau belum muncul ya!</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => router.replace(returnTo)}
+                className="hidden md:inline-flex items-center rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
+              >
+                Masuk ke Dashboard
+              </button>
+            </div>
+          )}
+          <form
+            className="p-6 md:p-8"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const data = new FormData(e.currentTarget);
+              const link = String(data.get("videoLink") || "").trim();
+              if (!link) return;
+              // Mark welcome as done and show success
+              try {
+                localStorage.setItem("hpz_crew_welcome_done", "1");
+              } catch {}
+              setSent(true);
+            }}
+          >
+            <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">
+              Petunjuk Verifikasi HPZ Crew
+            </h3>
+            <p className="text-gray-700">
+              Untuk menyelesaikan proses verifikasi, silakan unggah link video
+              perkenalan diri kamu pada kolom di bawah.
+            </p>
+            <p className="text-gray-700 mb-4">
+              Video ini membantu kami memastikan bahwa kamu adalah calon anggota
+              asli HPZ Crew.
+            </p>
+
+            <h4 className="font-semibold text-gray-900 mb-2">
+              Ketentuan video :
+            </h4>
+            <ol className="list-decimal pl-6 text-gray-700 space-y-1 mb-4">
+              <li>Durasi maksimal 30 detik.</li>
+              <li>
+                Rekam dengan posisi horizontal atau vertical menggunakan kamera
+                HP.
+              </li>
+              <li>Sebutkan nama lengkap dan asal kota kamu.</li>
+              <li>Tampilkan motor kamu (opsional, tapi disarankan).</li>
+              <li>Tutup dengan kalimat “Ride with Pride bersama HPZ Crew!”.</li>
+            </ol>
+
+            <h4 className="font-semibold text-gray-900 mb-2">Contoh :</h4>
+            <blockquote className="italic text-gray-700 bg-gray-50 border border-gray-200 rounded-md p-3 mb-4">
+              “Halo, saya Dimas dari Surabaya. Ini motor saya, dan saya gabung HPZ Crew karena pengen sharing dan belajar bareng soal performa motor. Ride with Pride bersama HPZ Crew!”
+            </blockquote>
+            <p className="text-gray-700 mb-6">
+              Setelah video selesai, unggah ke platform mana pun (Instagram,
+              YouTube Shorts, atau Google Drive) dan tempelkan link-nya di kolom
+              verifikasi.
+            </p>
+
+            <label
+              htmlFor="videoLink"
+              className="block font-semibold text-gray-900 mb-2"
+            >
+              Link Video
+            </label>
+            <input
+              id="videoLink"
+              name="videoLink"
+              type="url"
+              placeholder="Salin dan tempel link video kamu disini"
+              className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+              required
+            />
+
+            <div className="flex items-center justify-between gap-3 mt-4">
+              <button
+                type="submit"
+                className="w-full md:w-auto rounded-md bg-[#EC1617] px-5 py-2.5 text-white font-medium hover:bg-red-700 transition-colors"
+              >
+                Kirim Link
+              </button>
+              {sent && (
+                <button
+                  type="button"
+                  onClick={() => router.replace(returnTo)}
+                  className="md:hidden w-full rounded-md border border-gray-300 px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >
+                  Masuk ke Dashboard
+                </button>
+              )}
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}

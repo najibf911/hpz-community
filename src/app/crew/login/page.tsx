@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import phoneIcon from "@/assets/icon/phone.png";
 import loginBg from "@/assets/loginBg.png";
 import { findCrewUser, setSession } from "@/lib/auth";
 
