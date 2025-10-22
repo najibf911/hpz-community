@@ -23,12 +23,19 @@ export default function Registration() {
         password: form.password.value,
       });
       router.push("/crew/login");
-    } catch (err: any) {
-      alert(err?.message ?? "Pendaftaran gagal");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("Pendaftaran gagal");
+      }
     }
   };
   return (
-    <section className="bg-gray-100 py-10 px-4 mt-10 lg:mt-24 lg:px-20" id="joinUs">
+    <section
+      className="bg-gray-100 py-10 px-4 mt-10 lg:mt-24 lg:px-20"
+      id="joinUs"
+    >
       {/* heading */}
       <div className="mb-10 text-center flex flex-col gap-5 items-center">
         <h1 className="font-extrabold italic text-3xl lg:text-4xl text-gray-900">
@@ -48,7 +55,11 @@ export default function Registration() {
             <h2 className="text-xl text-white font-semibold mb-8">
               Masukkan data diri kamu
             </h2>
-            <form id="registrationForm" className="text-black" onSubmit={onSubmit}>
+            <form
+              id="registrationForm"
+              className="text-black"
+              onSubmit={onSubmit}
+            >
               <label className="text-white text-lg">Nama Lengkap</label>
               <input
                 type="text"
@@ -78,16 +89,6 @@ export default function Registration() {
                 required
                 className="w-full p-3 mb-3 border bg-white rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
               />
-
-              {/* <label className="text-white text-lg">Domisili</label>
-              <input
-                type="text"
-                id="domisili"
-                name="domisili"
-                placeholder="Kota Domisili"
-                required
-                className="w-full p-3 mb-8 border bg-white rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"
-              /> */}
 
               <label className="text-white text-lg">No. Telepon</label>
               <input
