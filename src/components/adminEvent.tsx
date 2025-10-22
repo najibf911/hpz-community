@@ -41,7 +41,7 @@ export default function AdminEvent() {
 			<div className="flex items-start justify-between gap-4">
 				<div>
 					<h1 className="text-2xl md:text-[28px] font-bold">Event</h1>
-					<p className="text-gray-500">Manage user's join request</p>
+					<p className="text-gray-500">Manage user&aposs join request</p>
 				</div>
 				<div className="hidden md:block w-72">
 					<div className="relative">

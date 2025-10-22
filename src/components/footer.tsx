@@ -1,4 +1,6 @@
 import logo from "@/assets/logo.png";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -34,25 +36,25 @@ export default function Footer() {
               </svg>
             </span>
           </div>
-          <a className="text-gray-400" href="">Jakarta</a>
-          <a className="text-gray-400" href="">Surabaya</a>
-          <a className="text-gray-400" href="">Bali</a>
+          <Link className="text-gray-400" href="">Jakarta</Link>
+          <Link className="text-gray-400" href="">Surabaya</Link>
+          <Link className="text-gray-400" href="">Bali</Link>
         </div>
         <div className="flex flex-col gap-2">
           <div className="font-bold text-white text-xl border-b-1 border-white">
             Ikuti Kami
           </div>
-          <a className="text-gray-400" href="">Instagram</a>
-          <a className="text-gray-400" href="">Tiktok</a>
-          <a className="text-gray-400" href="">Facebook</a>
-          <a className="text-gray-400" href="">Youtube</a>
+          <Link className="text-gray-400" href="">Instagram</Link>
+          <Link className="text-gray-400" href="">Tiktok</Link>
+          <Link className="text-gray-400" href="">Facebook</Link>
+          <Link className="text-gray-400" href="">Youtube</Link>
         </div>
         <div className="flex flex-col gap-2">
           <div className="font-bold text-white text-xl border-b-1 border-white">
             Website Info
           </div>
-          <a className="text-gray-400" href="">Cookies</a>
-          <a className="text-gray-400" href="">Privacy Policy</a>
+          <Link className="text-gray-400" href="">Cookies</Link>
+          <Link className="text-gray-400" href="">Privacy Policy</Link>
         </div>
       </div>
     </footer>

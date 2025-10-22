@@ -42,18 +42,18 @@ export default function Navbar() {
           <Link className="hover:text-[#EC1617]" href="/">
             Home
           </Link>
-          <a className="hover:text-[#EC1617]" href="#reasons">
+          <Link className="hover:text-[#EC1617]" href="#reasons">
             Reasons
-          </a>
-          <a className="hover:text-[#EC1617]" href="#benefit">
+          </Link>
+          <Link className="hover:text-[#EC1617]" href="#benefit">
             Benefit
-          </a>
-          <a className="hover:text-[#EC1617]" href="#method">
+          </Link>
+          <Link className="hover:text-[#EC1617]" href="#method">
             Method
-          </a>
-          <a className="hover:text-[#EC1617]" href="#bestContent">
+          </Link>
+          <Link className="hover:text-[#EC1617]" href="#bestContent">
             Best Content
-          </a>
+          </Link>
         </div>
 
         {/* actions */}
@@ -64,12 +64,12 @@ export default function Navbar() {
           >
             Login
           </Link>
-          <a
+          <Link
             className="cursor-pointer hover:bg-red-900 duration-200 ease-in-out text-white bg-[#EC1617] rounded-2xl p-2.5 text-center"
             href="#joinUs"
           >
             Gabung HPZ Crew
-          </a>
+          </Link>
         </div>
       </nav>
     </header>

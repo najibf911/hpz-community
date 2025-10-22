@@ -11,14 +11,14 @@ export default function AdminDashboard() {
 
   return (
     <div className="flex  min-h-screen">
-      <AdminSidebar
+      <LinkdminSidebar
         active={active}
         onSelect={(key) => {
           setActive(key);
         }}
       />
       <div className="flex-1 p-16">
-        {active === "dashboard" ? <MainAdminDashboard /> : active === "users" ? <AdminCrew /> : active === "events" ? <AdminEvent /> : active === "analytics" ? <AdminAnalytic /> : ""}
+        {active === "dashboard" ? <MainAdminDashboard /> : active === "users" ? <LinkdminCrew /> : active === "events" ? <LinkdminEvent /> : active === "analytics" ? <LinkdminAnalytic /> : ""}
       </div>
     </div>
   );

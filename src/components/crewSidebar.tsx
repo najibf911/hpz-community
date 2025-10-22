@@ -24,11 +24,11 @@ export default function CrewSidebar({
   onSelect?: (key: SidebarKey) => void;
 }) {
   return (
-    <aside className="w-64 bg-[#1f1f1f] text-white min-h-screen flex-shrink-0 border-r border-white/10">
+    <Linkside className="w-64 bg-[#1f1f1f] text-white min-h-screen flex-shrink-0 border-r border-white/10">
       <div className="py-6 px-5">
-        <a href="/" aria-label="HPZ Home" className="inline-flex items-center gap-3">
+        <Link href="/" aria-label="HPZ Home" className="inline-flex items-center gap-3">
           <Image src={logo} alt="HPZ Logo" className="h-auto w-28" />
-        </a>
+        </Link>
       </div>
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mx-5" />
@@ -81,6 +81,6 @@ export default function CrewSidebar({
           Logout
         </button>
       </div>
-    </aside>
+    </Linkside>
   );
 }

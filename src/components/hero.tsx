@@ -9,6 +9,7 @@ import ImageHero7 from "@/assets/hero/7.jpg";
 import ImageHero8 from "@/assets/hero/8.jpg";
 import ImageHero9 from "@/assets/hero/9.jpg";
 import ImageHero10 from "@/assets/hero/10.jpg";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -85,7 +86,7 @@ export default function Hero() {
           eksklusif di dunia otomotif — mulai dari event, kolaborasi, hingga
           akses ke produk premium.
         </p>
-        <a
+        <Link
           href="#joinUs"
           className="lg:mt-10 inline-block text-center w-50 mx-auto lg:mx-0 hover:bg-red-900 transition duration-200 ease-in-out text-white bg-[#EC1617] rounded-2xl p-2.5 shadow-md"
         >
@@ -107,7 +108,7 @@ export default function Hero() {
               />
             </svg>
           </span>
-        </a>
+        </Link>
       </div>
       {/* 2nd content */}
       <div className="flex flex-col justify-center gap-7 mx-5 items-start">

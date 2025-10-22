@@ -1,5 +1,5 @@
 import Image from "next/image";
-import searchIcon from "@/assets/icon/material-symbols_search.svg";
+import Link from "next/link";
 import tikTokPng from "@/assets/Tik Tok.png";
 
 export default function MainAdminDashboard() {
@@ -264,12 +264,12 @@ export default function MainAdminDashboard() {
           </div>
 
           <div className="flex justify-end mt-4">
-            <a
+            <Link
               className="text-indigo-600 hover:text-indigo-700 text-sm font-medium"
               href="#"
             >
               View more →
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -304,12 +304,12 @@ export default function MainAdminDashboard() {
           </div>
 
           <div className="flex justify-end mt-4">
-            <a
+            <Link
               className="text-indigo-600 hover:text-indigo-700 text-sm font-medium"
               href="#"
             >
               View more →
-            </a>
+            </Link>
           </div>
         </div>
       </div>
