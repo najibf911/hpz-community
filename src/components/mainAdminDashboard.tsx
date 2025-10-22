@@ -68,7 +68,7 @@ export default function MainAdminDashboard() {
           <div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <img
+                <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
                   alt="Instagram"
                   className="w-10 h-10 rounded-md"
