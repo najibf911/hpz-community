@@ -1,0 +1,28 @@
+[
+    {
+        "fullName": "Test1",
+        "domisili": "bekasi",
+        "phoneNumber": "08121212132",
+        "email": "nf@gmail.com",
+        "password": "test123"
+    },
+    {
+        "fullName": "Muhammad Najib Fadhlurrohman",
+        "domisili": "Bekasi",
+        "phoneNumber": "081310833392",
+        "email": "najib1802@gmail.com",
+        "password": "12345najib"
+    },
+    {
+        "fullName": "Muhammad Najib Fadhlurrohman",
+        "phoneNumber": "81310833392",
+        "email": "njb@gmail.com",
+        "password": "najib1802"
+    },
+    {
+        "fullName": "Muhammad Najib Fadhlurrohman",
+        "phoneNumber": "081310833392",
+        "email": "najib12@gmail.com",
+        "password": "123najib"
+    }
+]
