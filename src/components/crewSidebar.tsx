@@ -2,6 +2,7 @@ import Image, { type StaticImageData } from "next/image";
 import logo from "@/assets/logo.png";
 import iconDashboard from "@/assets/icon/material-symbols_dashboard.svg";
 import iconLeaderboard from "@/assets/icon/material-symbols_leaderboard-outline.svg";
+import Link from "next/link";
 
 type SidebarKey = "dashboard" | "leaderboard";
 
@@ -24,7 +25,7 @@ export default function CrewSidebar({
   onSelect?: (key: SidebarKey) => void;
 }) {
   return (
-    <Linkside className="w-64 bg-[#1f1f1f] text-white min-h-screen flex-shrink-0 border-r border-white/10">
+    <aside className="w-64 bg-[#1f1f1f] text-white min-h-screen flex-shrink-0 border-r border-white/10">
       <div className="py-6 px-5">
         <Link href="/" aria-label="HPZ Home" className="inline-flex items-center gap-3">
           <Image src={logo} alt="HPZ Logo" className="h-auto w-28" />
@@ -81,6 +82,6 @@ export default function CrewSidebar({
           Logout
         </button>
       </div>
-    </Linkside>
+    </aside>
   );
 }

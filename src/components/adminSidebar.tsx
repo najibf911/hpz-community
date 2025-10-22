@@ -4,6 +4,7 @@ import iconDashboard from "@/assets/icon/material-symbols_dashboard.svg";
 import iconUser from "@/assets/icon/material-symbols_person-check-outline.svg";
 import iconEvent from "@/assets/icon/material-symbols_event-note-outline-sharp.svg";
 import iconAnalytics from "@/assets/icon/material-symbols_analytics-outline-sharp.svg";
+import Link from "next/link";
 
 type SidebarKey = "dashboard" | "users" | "events" | "analytics";
 
@@ -22,7 +23,7 @@ export default function AdminSidebar({
   onSelect?: (key: SidebarKey) => void;
 }) {
   return (
-    <Linkside className="w-64 bg-[#1f1f1f] text-white min-h-screen flex-shrink-0 border-r border-white/10">
+    <aside className="w-64 bg-[#1f1f1f] text-white min-h-screen flex-shrink-0 border-r border-white/10">
       <div className="py-6 px-5">
         <Link
           href="/"
@@ -87,6 +88,6 @@ export default function AdminSidebar({
           Logout
         </button>
       </div>
-    </Linkside>
+    </aside>
   );
 }

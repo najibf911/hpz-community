@@ -41,7 +41,7 @@ export default function BestContent() {
             {/* <!-- description --> */}
             <div className="absolute inset-x-0 bottom-0 bg-[#00000080] shadow-xl backdrop-blur-[2.5px] text-gray-200 p-4">
               <div className="flex gap-2 items-center mb-2">
-                <Image src={instagram.src} alt="Instagram" className="w-5 h-5" />
+                <Image src={instagram} alt="Instagram" className="w-5 h-5" />
                 <p>@fitrahrider</p>
               </div>
               <p className="mb-2">
@@ -67,7 +67,7 @@ export default function BestContent() {
             />
             <div className="absolute inset-x-0 bottom-0 bg-[#00000080] shadow-xl backdrop-blur-[2.5px] text-gray-200 p-4">
               <div className="flex gap-2 items-center mb-2">
-                <Image src={instagram.src} alt="Instagram" className="w-5 h-5" />
+                <Image src={instagram} alt="Instagram" className="w-5 h-5" />
                 <p>@fitrahrider</p>
               </div>
               <p className="mb-2">
@@ -81,7 +81,7 @@ export default function BestContent() {
         {/* <!-- item 3 --> */}
         <div className="rounded-lg lg:order-3 flex items-center flex-col">
           <div className="mx-auto mb-4">
-            <Image src={no3.src} alt="Ranking 3" />
+            <Image src={no3} alt="Ranking 3" />
           </div>
           <div className="relative rounded-2xl h-[50vh] w-full max-w-sm hover:scale-105 transition duration-300 overflow-hidden">
             <Image
@@ -93,7 +93,7 @@ export default function BestContent() {
             />
             <div className="absolute inset-x-0 bottom-0 bg-[#00000080] shadow-xl backdrop-blur-[2.5px] text-gray-200 p-4">
               <div className="flex gap-2 items-center mb-2">
-                <Image src={tiktok.src} alt="TikTok" className="w-5 h-5" />
+                <Image src={tiktok} alt="TikTok" className="w-5 h-5" />
                 <p>@fitrahrider</p>
               </div>
               <p className="mb-2">
