@@ -22,10 +22,10 @@ export default function Method() {
           className="grid grid-cols-1 lg:grid-cols-4 gap-6"
         >
           {[
-            { img: step1, title: "Daftar Online", desc: "Isi formulir pendaftaran melalui website resmi HPZ Crew." },
-            { img: step2, title: "Verifikasi Data", desc: "Tim kami akan memverifikasi data dan menghubungimu." },
-            { img: step3, title: "Pembayaran", desc: "Lakukan pembayaran sesuai instruksi yang diberikan." },
-            { img: step4, title: "Akses Anggota", desc: "Setelah pembayaran, kamu akan mendapatkan akses sebagai anggota." },
+            { img: step1, title: "Isi Form Pendaftaran", desc: "Lengkapi data dirimu untuk bergabung dengan HPZ Crew." },
+            { img: step2, title: "Gabung ke Server Discord HPZ TV", desc: "Masuk ke server resmi HPZ TV." },
+            { img: step3, title: "Mulai Riding dan Posting Konten", desc: "Tunjukkan semangat riding-mu lewat konten terbaik!" },
+            { img: step4, title: "Dapatkan Reward dan Benefit", desc: "Raih berbagai hadiah eksklusif, diskon, dan kesempatan kolaborasi." },
           ].map((step, index) => (
             <div key={index} className="bg-[#F9F9F9] rounded-2xl shadow-md flex flex-col dark:text-black">
               <Image src={step.img} alt={step.title}  className="object-cover mb-5 rounded-t-2xl" />
