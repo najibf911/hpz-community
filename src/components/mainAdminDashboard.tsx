@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import tikTokPng from "@/assets/Tik Tok.png";
+import Instagram from "@/assets/Instagram.png";
 
 export default function MainAdminDashboard() {
   return (
@@ -69,7 +70,7 @@ export default function MainAdminDashboard() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Image
-                  src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                  src={Instagram}
                   alt="Instagram"
                   className="w-10 h-10 rounded-md"
                 />
