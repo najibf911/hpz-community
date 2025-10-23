@@ -53,7 +53,17 @@ export default function CrewLogin() {
                 return;
               }
               setSession({ role: "crew", email });
-              router.replace("/crew/dashboard");
+              // If welcome not yet completed, send to welcome first
+              try {
+                const done = typeof window !== "undefined" && localStorage.getItem("hpz_crew_welcome_done");
+                if (!done) {
+                  router.replace("/crew/welcome?return=/crew/dashboard");
+                } else {
+                  router.replace("/crew/dashboard");
+                }
+              } catch {
+                router.replace("/crew/dashboard");
+              }
             }}
           >
             {/* email */}
