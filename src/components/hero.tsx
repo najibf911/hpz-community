@@ -14,7 +14,7 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section
-      className="flex flex-col gap-5 items-center lg:pl-20 mb-20 lg:mb-0"
+      className="relative overflow-x-hidden flex flex-col gap-5 items-center lg:pl-20 mb-20 lg:mb-0"
       id="hero"
     >
       {/* left/1st content */}
@@ -26,7 +26,7 @@ export default function Hero() {
           height="537"
           viewBox="0 0 1000 537"
           fill="none"
-          className="-z-10 opacity-5 absolute"
+          className="-z-10 opacity-5 absolute left-1/2 -translate-x-1/2"
         >
           <g filter="url(#filter0_i_664_10350)">
             <path

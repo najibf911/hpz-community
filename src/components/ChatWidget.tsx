@@ -78,21 +78,21 @@ export default function ChatWidget() {
   return (
     <>
       {/* floating toggle button */}
-      <button
-        type="button"
-        aria-label={open ? "Tutup chat" : "Buka chat"}
-        onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-4 right-4 z-40 rounded-full bg-[#EC1617] text-white shadow-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-      >
-        <span className="block p-4">
+        <button
+          type="button"
+          aria-label={open ? "Tutup chat" : "Buka chat"}
+          onClick={() => setOpen((v) => !v)}
+          className="fixed z-50 bottom-[calc(env(safe-area-inset-bottom,0px)+20px)] right-[calc(env(safe-area-inset-right,0px)+12px)] rounded-full bg-[#EC1617] text-white shadow-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-transform active:scale-95"
+        >
+          <span className="block p-3 md:p-4">
           {open ? (
             // close icon
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10 8.586l4.95-4.95a1 1 0 111.414 1.414L11.414 10l4.95 4.95a1 1 0 11-1.414 1.414L10 11.414l-4.95 4.95a1 1 0 11-1.414-1.414L8.586 10l-4.95-4.95A1 1 0 115.05 3.636L10 8.586z" clipRule="evenodd" />
             </svg>
           ) : (
             // chat icon
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6" viewBox="0 0 20 20" fill="currentColor">
               <path d="M18 10c0 3.866-3.582 7-8 7a9.11 9.11 0 01-3.247-.57L3 17l.691-3.11A6.84 6.84 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" />
             </svg>
           )}
@@ -101,7 +101,9 @@ export default function ChatWidget() {
 
       {/* chat panel */}
       {open && (
-        <div className="fixed bottom-20 right-4 z-40 w-80 max-h-[70vh] rounded-xl border border-gray-200 bg-white shadow-xl flex flex-col overflow-hidden">
+        <div
+          className="fixed z-40 bottom-[calc(env(safe-area-inset-bottom,0px)+84px)] right-[calc(env(safe-area-inset-right,0px)+12px)] w-[min(92vw,22rem)] max-h-[75vh] rounded-xl border border-gray-200 bg-white shadow-xl flex flex-col overflow-hidden"
+        >
           <div className="border-b px-4 py-3 bg-gray-50 flex items-center justify-between">
             <div>
               <p className="font-semibold dark:text-black">HPZ Assistant</p>

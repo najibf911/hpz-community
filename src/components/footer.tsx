@@ -9,7 +9,7 @@ export default function Footer() {
     >
       {/* logo footer */}
       <div className="flex flex-col items-start gap-4">
-        <Image className="h-10 lg:h-16" src={logo} alt="HPZ Crew Logo" />
+        <Image className="w-10 lg:w-16" src={logo} alt="HPZ Crew Logo" />
         <p className="text-gray-200">
           PT. Terra International © 2025 <br />
           High Performance Zone. <br />
