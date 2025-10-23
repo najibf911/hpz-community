@@ -7,6 +7,7 @@ import Registration from "@/components/registration";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import FAQ from "@/components/faq";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
       <FAQ />
       <Registration />
       <Footer />
+      {/* floating chat widget */}
+      <ChatWidget />
     </main>
   );
 }

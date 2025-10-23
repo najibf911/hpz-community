@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import CrewSidebar from "@/components/crewSidebar";
 import CrewLeaderboard from "@/components/crewLeaderboard";
 import MainCrewDashboard from "@/components/mainCrewDashboard";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function CrewDashboard() {
   const [active, setActive] = useState<"dashboard" | "leaderboard">("dashboard");
@@ -36,6 +37,8 @@ export default function CrewDashboard() {
           <div className="flex-1 p-16">
             {active === "dashboard" ? <MainCrewDashboard /> : <CrewLeaderboard />}
           </div>
+          {/* floating chat widget */}
+          <ChatWidget />
         </>
       )}
     </div>
