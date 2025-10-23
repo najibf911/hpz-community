@@ -38,13 +38,12 @@ export default function AdminLogin() {
   return (
     <>
       {/* background image */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 mb-20">
         <Image
           src={loginBg}
           alt="Background"
           fill
           priority
-          sizes="100vh"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -143,13 +142,12 @@ export default function AdminLogin() {
             ) : null}
           </form>
         </div>
+        {/* footer */}
+        <footer className="fixed bottom-0 w-full">
+          <div className="bg-[#EC1617] h-10 w-full"></div>
+          <div className="bg-[#272727] h-20 w-full"></div>
+        </footer>
       </section>
-
-      {/* footer */}
-      <footer className="absolute bottom-0 w-full">
-        <div className="bg-[#EC1617] h-10 w-full"></div>
-        <div className="bg-[#272727] h-20 w-full"></div>
-      </footer>
     </>
   );
 }

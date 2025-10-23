@@ -13,19 +13,18 @@ export default function CrewLogin() {
 
   return (
     <>
-      {/* background image */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src={loginBg}
-          alt="Background"
-          fill
-          priority
-          sizes="100vh"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
-      <section className="relative flex flex-col items-center justify-center flex-grow py-10 lg:py-18 overflow-hidden">
+      <section className="relative flex flex-col items-center justify-center flex-grow min-h-[100svh] py-10 lg:py-24 px-4 pb-32 overflow-x-hidden mb-10">
+        {/* background image */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <Image
+            src={loginBg}
+            alt="Background"
+            priority
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
         {/* heading */}
         <h1 className="text-3xl font-bold italic mb-2">
           Selamat Datang Kembali!
@@ -35,7 +34,7 @@ export default function CrewLogin() {
         </p>
 
         {/* form card */}
-        <div className="bg-[#454545]/90 backdrop-blur p-8 rounded-md shadow-lg w-full max-w-sm">
+        <div className="bg-[#454545]/90 backdrop-blur p-6 sm:p-8 rounded-md shadow-lg w-full max-w-sm mx-auto">
           <form
             id="loginForm"
             className="space-y-5"
@@ -55,7 +54,9 @@ export default function CrewLogin() {
               setSession({ role: "crew", email });
               // If welcome not yet completed, send to welcome first
               try {
-                const done = typeof window !== "undefined" && localStorage.getItem("hpz_crew_welcome_done");
+                const done =
+                  typeof window !== "undefined" &&
+                  localStorage.getItem("hpz_crew_welcome_done");
                 if (!done) {
                   router.replace("/crew/welcome?return=/crew/dashboard");
                 } else {
@@ -143,17 +144,17 @@ export default function CrewLogin() {
               aria-label="Kembali"
             >
               <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 transition-transform group-hover:-translate-x-1"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 transition-transform group-hover:-translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden
               >
-              <path
-                fillRule="evenodd"
-                d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4A1 1 0 118.707 6.293L6.414 8.586H17a1 1 0 110 2H6.414l2.293 2.293a1 1 0 010 1.414z"
-                clipRule="evenodd"
-              />
+                <path
+                  fillRule="evenodd"
+                  d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4A1 1 0 118.707 6.293L6.414 8.586H17a1 1 0 110 2H6.414l2.293 2.293a1 1 0 010 1.414z"
+                  clipRule="evenodd"
+                />
               </svg>
               <span className="font-medium">Kembali</span>
             </button>
@@ -195,13 +196,12 @@ export default function CrewLogin() {
             ) : null}
           </form>
         </div>
+        {/* footer */}
+        <footer className="fixed bottom-0 w-full">
+          <div className="bg-[#EC1617] h-10 w-full"></div>
+          <div className="bg-[#272727] h-20 w-full"></div>
+        </footer>
       </section>
-
-      {/* footer */}
-      <footer className="absolute bottom-0 w-full">
-        <div className="bg-[#EC1617] h-10 w-full"></div>
-        <div className="bg-[#272727] h-20 w-full"></div>
-      </footer>
     </>
   );
 }
